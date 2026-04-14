@@ -48,10 +48,3 @@
   background-image: url(https://imgur.com/eHVyWTM.jpg);
   filter: url("#glitch");
 }
-
-.block404 h1 {
-  position: absolute;
-  width: 100%;
-  top: 65%;
-  font-size: 15vh;
-}

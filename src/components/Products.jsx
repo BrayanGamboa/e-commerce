@@ -1,52 +1,42 @@
-import "./style/Products.css";
+import "../style/Products.css";
 import Card from "./Card";
+import useFetch from "../hooks/useFetch";
 
 export default function Products() {
-  const food = [
-    {
-      id: 1,
-      title: "Perrito Caliente",
-      text: "Delicioso perrito caliente",
-      img: "🌭",
-    },
-    {
-      id: 2,
-      title: "Hamburguesa",
-      text: "Sabrosa hamburguesa",
-      img: "🍔",
-    },
-    {
-      id: 3,
-      title: "Pizza",
-      text: "Exquisita pizza",
-      img: "🍕",
-    },
-    {
-      id: 4,
-      title: "Taco",
-      text: "Auténtico taco",
-      img: "🌮",
-    },
-    {
-      id: 5,
-      title: "Sushi",
-      text: "Fresco sushi",
-      img: "🍣",
-    },
-    {
-      id: 6,
-      title: "Helado",
-      text: "Dulce helado",
-      img: "🍦",
-    },
-  ];
+  const {
+    data: products,
+    loading,
+    error,
+  } = useFetch("https://fakestoreapi.com/products");
 
-  return <>
-    <h1>Productos</h1>
-    <div className="products">
-      {food.map((item) => (
-        <Card key={item.id} title={item.title} text={item.text} img={item.img} />
-      ))}
-    </div>
-  </>;
+  if (loading)
+    return (
+      <div className="loading">
+        <div className="spinner"></div>
+        <p>Cargando productos...</p>
+      </div>
+    );
+  if (error)
+    return (
+      <div className="error">
+        <p>Error: {error}</p>
+      </div>
+    );
+
+  return (
+    <>
+      <h1>Productos</h1>
+      <div className="products">
+        {products.map((product) => (
+          <Card
+            key={product.id}
+            title={product.title}
+            text={product.description}
+            img={product.image}
+            id={product.id}
+          />
+        ))}
+      </div>
+    </>
+  );
 }

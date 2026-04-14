@@ -1,4 +1,4 @@
-import './style/NotFound.css'
+import '../style/NotFound.css'
 
 function NotFound() {
 
@@ -44,7 +44,6 @@ function NotFound() {
             </filter>
           </defs>
         </svg>
-        <h1>Not Found</h1>
       </div>
     </>
   );
