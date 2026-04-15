@@ -1,29 +1,30 @@
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
+  --text: #4b587c;
+  --text-h: #10204a;
+  --bg: #eef4ff;
+  --border: #cdd9f0;
+  --code-bg: #e7eefc;
+  --accent: #6c4ef6;
+  --accent-bg: rgba(108, 78, 246, 0.12);
+  --accent-border: rgba(108, 78, 246, 0.35);
+  --social-bg: rgba(231, 238, 252, 0.7);
   --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+    rgba(26, 43, 94, 0.14) 0 18px 40px -22px,
+    rgba(53, 85, 160, 0.12) 0 10px 24px -18px;
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
-  --primary: #4f46e5;
-  --primary-hover: #3730a3;
-  --secondary: #10b981;
-  --secondary-hover: #059669;
+  --primary: #2f5bff;
+  --primary-hover: #2147d0;
+  --secondary: #7a4cff;
+  --secondary-hover: #6237dc;
   --danger: #ef4444;
   --danger-hover: #dc2626;
-  --light-bg: #f8fafc;
-  --card-bg: #ffffff;
-  --navbar-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --light-bg: #f6f9ff;
+  --card-bg: rgba(255, 255, 255, 0.86);
+  --navbar-bg: linear-gradient(90deg, #2a4ecb 0%, #6b34dc 100%);
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
@@ -42,27 +43,28 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
+    --text: #b7c2e7;
+    --text-h: #f4f7ff;
+    --bg: #0c1633;
+    --border: #20305e;
+    --code-bg: #152044;
+    --accent: #9f86ff;
+    --accent-bg: rgba(159, 134, 255, 0.2);
+    --accent-border: rgba(159, 134, 255, 0.45);
+    --social-bg: rgba(21, 32, 68, 0.6);
     --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+      rgba(3, 8, 26, 0.5) 0 24px 48px -24px,
+      rgba(66, 94, 172, 0.2) 0 12px 28px -22px;
 
-    --primary: #6366f1;
-    --primary-hover: #4f46e5;
-    --secondary: #34d399;
-    --secondary-hover: #10b981;
+    --primary: #6b8dff;
+    --primary-hover: #4f73f2;
+    --secondary: #aa7bff;
+    --secondary-hover: #8f5fff;
     --danger: #f87171;
     --danger-hover: #ef4444;
-    --light-bg: #1e293b;
-    --card-bg: #0f172a;
-    --navbar-bg: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%);
+    --light-bg: #101c3d;
+    --card-bg: rgba(12, 22, 51, 0.9);
+    --navbar-bg: linear-gradient(90deg, #1c338a 0%, #5f26ba 100%);
   }
 
   #social .button-icon {
@@ -85,6 +87,7 @@
   h3 {
     color: var(--text-h);
     font-family: var(--heading);
+    padding: 1vh;
   }
 
   button {
@@ -100,6 +103,11 @@
 
 body {
   margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(122, 76, 255, 0.16), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(47, 91, 255, 0.18), transparent 35%),
+    var(--bg);
 }
 
 #root {
@@ -107,11 +115,11 @@ body {
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
-  border-inline: 1px solid var(--border);
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  background: transparent;
 }
 
 h1,

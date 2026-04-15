@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import { useCart } from "../contexts/CartContext";
@@ -11,6 +12,24 @@ function ProductDetail() {
     error,
   } = useFetch(`https://fakestoreapi.com/products/${id}`);
   const { addToCart } = useCart();
+  const [cartFeedback, setCartFeedback] = useState("idle");
+
+  useEffect(() => {
+    if (cartFeedback === "idle") {
+      return undefined;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      setCartFeedback("idle");
+    }, 1800);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [cartFeedback]);
+
+  const handleAddToCart = () => {
+    addToCart(product);
+    setCartFeedback("added");
+  };
 
   if (loading)
     return (
@@ -32,7 +51,22 @@ function ProductDetail() {
       <h1>{product.title}</h1>
       <p>{product.description}</p>
       <p className="price">${product.price}</p>
-      <button onClick={() => addToCart(product)}>Añadir a Carrito</button>
+      <div className="product-detail__actions">
+        <button
+          className={cartFeedback === "added" ? "is-added" : ""}
+          onClick={handleAddToCart}
+        >
+          {cartFeedback === "added"
+            ? "Agregado al carrito"
+            : "Añadir a Carrito"}
+        </button>
+        <p
+          className={`cart-feedback ${cartFeedback === "added" ? "is-visible" : ""}`}
+          aria-live="polite"
+        >
+          El producto se agrego correctamente.
+        </p>
+      </div>
     </div>
   );
 }

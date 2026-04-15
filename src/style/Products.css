@@ -1,8 +1,10 @@
 .products {
+  margin: 0% 10% 0% 10%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(30vh, 40vh));
   gap: 30px;
   padding: 40px 0;
+  justify-content: center;
 }
 
 h1 {

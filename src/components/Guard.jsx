@@ -5,7 +5,7 @@ function Guard({ children }) {
   const { isLogged } = useCart();
 
   if (!isLogged) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/no-access" replace />;
   }
 
   return children;
